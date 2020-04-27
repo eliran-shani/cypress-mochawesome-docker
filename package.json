@@ -1,0 +1,32 @@
+{
+  "name": "cypress-mochawesome-docker",
+  "version": "1.0.0",
+  "description": "# UI Automation Framework",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^4.4.1",
+    "eslint": "^6.8.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "mocha": "^7.1.2",
+    "mochawesome": "^6.1.0",
+    "mochawesome-merge": "^4.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "cypress open",
+    "test": "cypress run test --reporter mochawesome",
+    "record": "cypress run test --record",
+    "cy:sanity:prod:electron": "yarn run test --browser electron",
+    "cy:sanity:prod:chrome": "yarn run test --browser chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliran-shani/cypress-mochawesome-docker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliran-shani/cypress-mochawesome-docker/issues"
+  },
+  "homepage": "https://github.com/eliran-shani/cypress-mochawesome-docker#readme"
+}
