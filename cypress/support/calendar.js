@@ -1,0 +1,3 @@
+class calendar extends leftpanel {
+
+}
