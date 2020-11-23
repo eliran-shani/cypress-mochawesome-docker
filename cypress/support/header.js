@@ -31,6 +31,4 @@ export class header {
         cy.get('[data-title="logout,moodle"]').click()
         cy.get('.login').should('be.visible')
     }
-
-
 }
