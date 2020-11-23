@@ -1,4 +1,4 @@
-FROM "cypress/base:10"
+FROM cypress/browsers:node12.14.1-chrome83-ff77
 
 COPY cypress .
 COPY package.json .
@@ -7,4 +7,4 @@ COPY yarn.lock .
 
 RUN yarn install
 ENTRYPOINT ["yarn", "run"]
-CMD ["cy:sanity:prod:electron"]
+CMD ["cy:sanity:prod:chrome:headless"]

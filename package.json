@@ -20,7 +20,8 @@
     "record": "cypress run test --record",
     "cy:sanity:prod:electron": "yarn run test --browser electron",
     "cy:sanity:prod:chrome": "yarn run test --browser chrome",
-    "cy:sanity:prod:chrome:headless": "yarn run test --browser chrome --headless --record --key ${CYPRESS_KEY}",
+    "cy:sanity:prod:chrome:headless": "yarn run test --browser chrome",
+    "cy:sanity:prod:chrome:headless:record": "yarn run test --browser chrome --headless --record --key ${CYPRESS_KEY}",
     "cy:sanity:prod:ff": "yarn run test --browser firefox",
     "cy:sanity:prod:edge": "yarn run test --browser edge"
   },
