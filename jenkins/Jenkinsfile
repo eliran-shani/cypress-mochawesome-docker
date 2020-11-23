@@ -12,14 +12,12 @@ pipeline {
         gitParameter (name: 'BRANCH', type: 'PT_BRANCH', useRepository: '.*cypress-mochawesome-docker.git', quickFilterEnabled: true, defaultValue: 'master', selectedValue: 'DEFAULT', branchFilter: 'origin/(.*)')
     }
     stages {
-        stage('Git projects') {
-            steps {
-                git branch: "${params.BRANCH}", url: 'git@github.com:eliran-shani/cypress-mochawesome-docker.git'
-            }
-        }
         stage('Git checkout') {
             steps {
-                gitCheckout('cypress-mochawesome-docker', "${params.BRANCH}")
+                git branch: "${params.BRANCH}",
+                    url: 'git@github.com:eliran-shani/cypress-mochawesome-docker.git',
+                    credentialsId: 'github_creds',
+
             }
         }
 //         stage('Set display name') {
