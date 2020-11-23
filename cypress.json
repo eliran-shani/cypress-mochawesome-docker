@@ -1,9 +1,13 @@
 {
+  "projectId": "nwinur",
   "reporter": "mochawesome",
   "reporterOptions": {
     "overwrite": false,
     "html": false,
     "json": true,
     "reportFilename": "test_results"
+  },
+  "env": {
+    "baseUrl": "https://sandbox.moodledemo.net/"
   }
 }

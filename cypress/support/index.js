@@ -15,6 +15,36 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import {COOKIES} from "./commands"
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+require('cypress-commands')
+
+before(function () {
+
+    cy.clearLocalStorageCache()
+    cy.clearCookies()
+
+    cy.login(
+        Cypress.env('baseUrl'),
+        Cypress.env('username'),
+        Cypress.env('password')
+    )
+})
+
+beforeEach(function () {
+
+    // Whitelist cookies
+    Cypress.Cookies.defaults({
+        preserve: COOKIES
+    })
+
+    // Restore local storage
+    cy.restoreLocalStorageCache()
+})
+
+afterEach(() => {
+
+    // Save local storage
+    cy.saveLocalStorageCache()
+})
+

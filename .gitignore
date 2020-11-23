@@ -1,0 +1,7 @@
+.DS_store
+node_modules
+/.idea/
+/cypress/videos/
+/ui_automation.iml
+/cypress/fixtures/
+/cypress.env.json
