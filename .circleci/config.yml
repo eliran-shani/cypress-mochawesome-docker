@@ -1,0 +1,36 @@
+version: 2.1
+jobs:
+  e2e:
+    docker:
+      - image: cypress/browsers:node12.14.1-chrome83-ff77
+    steps:
+      - run:
+          name: Checkout e2e repo
+          command: |
+            git clone git@github.com:eliran-shani/cypress-mochawesome-docker.git cypress-mochawesome-docker
+      - run:
+          name: Install dependencies
+          command: |
+            cd cypress-mochawesome-docker
+            yarn install
+      - run:
+          name: Set env vars
+          command: |
+            echo "export USERNAME=$USERNAME" >> $BASH_ENV
+            echo "export PASSWORD=$PASSWORD" >> $BASH_ENV
+            echo "export CYPRESS_KEY=$CYPRESS_KEY" >> $BASH_ENV
+            source $BASH_ENV
+      - run:
+          name: Run e2e sanity tests
+          command: |
+            yarn cy:sanity:prod:chrome:headless:record
+          executor: cypress/browsers-chrome69
+          store_artifacts: true
+          browser: chrome
+          record: true
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - e2e
