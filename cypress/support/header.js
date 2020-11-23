@@ -1,4 +1,4 @@
-class header {
+export class header {
 
     toggleUserMenu(toggleTo) {
 

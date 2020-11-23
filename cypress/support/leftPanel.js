@@ -1,6 +1,7 @@
+import {header} from "./header"
 
 
-class leftpanel extends header {
+export class leftPanel extends header {
 
     goToNavItem(item) {
         cy.get('.media').contains(item).click()
