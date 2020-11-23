@@ -12,6 +12,7 @@ jobs:
           name: Install dependencies
           command: |
             cd cypress-mochawesome-docker
+            npm install
             yarn install
       - run:
           name: Set env vars
