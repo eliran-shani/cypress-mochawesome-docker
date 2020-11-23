@@ -19,25 +19,25 @@ pipeline {
                     credentialsId: 'github_creds'
             }
         }
-//         stage('Set display name') {
-//             steps {
-//                 script {
-//                     currentBuild.displayName = "${params.BRANCH}"
-//                 }
-//             }
-//         }
-//         stage('Build Docker & Run tests') {
-//             steps {
-//                 script {
-//                     if ("${params.USERNAME}" == '' | "${params.PASSWORD}" == '') {
-//                         load "${JENKINS_HOME}/.envvars/vars.groovy"
-//                         sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${env.USERNAME} ${env.PASSWORD}"
-//                     }
-//                     else {
-//                         sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${params.USERNAME} ${params.PASSWORD}"
-//                     }
-//                 }
-//             }
-//         }
+        stage('Set display name') {
+            steps {
+                script {
+                    currentBuild.displayName = "${params.BRANCH}"
+                }
+            }
+        }
+        stage('Build Docker & Run tests') {
+            steps {
+                script {
+                    if ("${params.USERNAME}" == '' | "${params.PASSWORD}" == '') {
+                        load "${JENKINS_HOME}/.envvars/vars.groovy"
+                        sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${env.USERNAME} ${env.PASSWORD}"
+                    }
+                    else {
+                        sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${params.USERNAME} ${params.PASSWORD}"
+                    }
+                }
+            }
+        }
     }
 }
