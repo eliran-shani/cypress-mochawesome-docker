@@ -1,0 +1,46 @@
+#!groovy
+
+pipeline {
+    agent any
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        timestamps ()
+    }
+    parameters {
+        string(name: 'USERNAME', description: 'username (optional)')
+        string(name: 'PASSWORD', description: 'password (optional)')
+        gitParameter (name: 'BRANCH', type: 'PT_BRANCH', useRepository: '.*cypress-mochawesome-docker.git', quickFilterEnabled: true, defaultValue: 'master', selectedValue: 'DEFAULT', branchFilter: 'origin/(.*)')
+    }
+    stages {
+        stage('Git projects') {
+            steps {
+                git branch: "${params.BRANCH}", url: 'git@github.com:eliran-shani/cypress-mochawesome-docker.git'
+            }
+        }
+        stage('Git checkout') {
+            steps {
+                gitCheckout('cypress-mochawesome-docker', "${params.BRANCH}")
+            }
+        }
+//         stage('Set display name') {
+//             steps {
+//                 script {
+//                     currentBuild.displayName = "${params.BRANCH}"
+//                 }
+//             }
+//         }
+//         stage('Build Docker & Run tests') {
+//             steps {
+//                 script {
+//                     if ("${params.USERNAME}" == '' | "${params.PASSWORD}" == '') {
+//                         load "${JENKINS_HOME}/.envvars/vars.groovy"
+//                         sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${env.USERNAME} ${env.PASSWORD}"
+//                     }
+//                     else {
+//                         sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${params.USERNAME} ${params.PASSWORD}"
+//                     }
+//                 }
+//             }
+//         }
+    }
+}
