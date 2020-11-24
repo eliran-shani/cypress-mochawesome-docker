@@ -17,14 +17,15 @@
   },
   "scripts": {
     "start": "npx cypress open",
+    "test_reporter": "npx cypress run test",
     "test": "npx cypress run test --reporter mochawesome",
     "record": "npx cypress run test --record",
-    "cy:sanity:prod:electron": "yarn run test --browser electron",
-    "cy:sanity:prod:chrome": "yarn run test --browser chrome",
-    "cy:sanity:prod:chrome:headless": "yarn run test --browser chrome",
-    "cy:sanity:prod:chrome:headless:record": "yarn run test --browser chrome --headless --record --key ${CYPRESS_KEY}",
-    "cy:sanity:prod:ff": "yarn run test --browser firefox",
-    "cy:sanity:prod:edge": "yarn run test --browser edge"
+    "cy:sanity:prod:electron": "yarn test --browser electron",
+    "cy:sanity:prod:chrome": "yarn test --browser chrome",
+    "cy:sanity:prod:chrome:headless": "yarn test --browser chrome",
+    "cy:sanity:prod:chrome:headless:record": "yarn test --spec cypress/integration/sanity.spec.js --browser chrome --headless --record --key ${CYPRESS_KEY}",
+    "cy:sanity:prod:ff": "yarn test --browser firefox",
+    "cy:sanity:prod:edge": "yarn test --browser edge"
   },
   "repository": {
     "type": "git",
