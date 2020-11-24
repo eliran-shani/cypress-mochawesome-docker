@@ -1,7 +1,11 @@
 #!groovy
 
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'recommendations-service-1b'
+        }
+    }
     options {
         timeout(time: 1, unit: 'HOURS')
         timestamps ()
@@ -30,11 +34,12 @@ pipeline {
             steps {
                 script {
 
-                    // Default credentials
+                    // Default credentials (if none provided)
                     if ("${params.USERNAME}" == '' | "${params.PASSWORD}" == '') {
-                        load "${JENKINS_HOME}/.envvars/vars.groovy"
+                        load "${JENKINS_HOME}/.envvars/envvars.groovy"
                         sh "./scripts/docker/run_and_record_sanity_tests.bash ${env.USERNAME} ${env.PASSWORD}"
                     }
+
                     // Ad-hoc credentials
                     else {
                         sh "./scripts/docker/run_and_record_sanity_tests.bash ${params.USERNAME} ${params.PASSWORD}"
