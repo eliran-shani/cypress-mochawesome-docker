@@ -17,8 +17,8 @@
   },
   "scripts": {
     "start": "npx cypress open",
-    "test_reporter": "npx cypress run test",
-    "test": "npx cypress run test --reporter mochawesome",
+    "test_reporter": "npx cypress run test --reporter mochawesome",
+    "test": "npx cypress run test",
     "record": "npx cypress run test --record",
     "cy:sanity:prod:electron": "yarn test --browser electron",
     "cy:sanity:prod:chrome": "yarn test --browser chrome",
