@@ -7,7 +7,7 @@
     "cypress-commands": "^1.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "mocha": "^7.2.0",
+    "mocha": "^8.2.1",
     "mochawesome": "^6.2.1",
     "mochawesome-merge": "^4.2.0",
     "mochawesome-report-generator": "^5.1.0"
@@ -20,12 +20,12 @@
     "test_reporter": "npx cypress run test --reporter mochawesome",
     "test": "npx cypress run test",
     "record": "npx cypress run test --record",
-    "cy:sanity:prod:electron": "yarn test --browser electron",
-    "cy:sanity:prod:chrome": "yarn test --browser chrome",
-    "cy:sanity:prod:chrome:headless": "yarn test --browser chrome",
+    "cy:sanity:prod:electron": "yarn test_reporter --browser electron",
+    "cy:sanity:prod:chrome": "yarn test_reporter --browser chrome",
+    "cy:sanity:prod:chrome:headless": "yarn test_reporter --browser chrome",
     "cy:sanity:prod:chrome:headless:record": "yarn test --spec cypress/integration/sanity.spec.js --browser chrome --headless --record --key ${CYPRESS_KEY}",
-    "cy:sanity:prod:ff": "yarn test --browser firefox",
-    "cy:sanity:prod:edge": "yarn test --browser edge"
+    "cy:sanity:prod:ff": "yarn test_reporter --browser firefox",
+    "cy:sanity:prod:edge": "yarn test_reporter --browser edge"
   },
   "repository": {
     "type": "git",
