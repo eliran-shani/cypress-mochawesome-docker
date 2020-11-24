@@ -15,9 +15,9 @@
     "cypress": "5.6.0"
   },
   "scripts": {
-    "start": "cypress open",
-    "test": "cypress run test --reporter mochawesome",
-    "record": "cypress run test --record",
+    "start": "npx cypress open",
+    "test": "npx cypress run test --reporter mochawesome",
+    "record": "npx cypress run test --record",
     "cy:sanity:prod:electron": "yarn run test --browser electron",
     "cy:sanity:prod:chrome": "yarn run test --browser chrome",
     "cy:sanity:prod:chrome:headless": "yarn run test --browser chrome",
