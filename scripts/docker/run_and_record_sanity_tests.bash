@@ -8,7 +8,7 @@ sh ./scripts/reports/clean_results.bash
 
 # Build Docker image
 TAG_NAME="cypress_image"
-docker build -t ${TAG_NAME} .
+docker build -t ${TAG_NAME} --no-cache .
 
 # Run test
 docker run --rm --shm-size 1G \
