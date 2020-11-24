@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 
 # Debug mode
 set -x
