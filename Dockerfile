@@ -4,7 +4,6 @@ COPY cypress .
 COPY package.json .
 COPY cypress.json .
 
-RUN npm i
 RUN yarn install
 ENTRYPOINT ["yarn", "run"]
 CMD ["cy:sanity:prod:chrome:headless"]
