@@ -29,12 +29,15 @@ pipeline {
         stage('Build Docker & Run tests') {
             steps {
                 script {
+
+                    // Default credentials
                     if ("${params.USERNAME}" == '' | "${params.PASSWORD}" == '') {
                         load "${JENKINS_HOME}/.envvars/vars.groovy"
-                        sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${env.USERNAME} ${env.PASSWORD}"
+                        sh "./scripts/docker/run_and_record_sanity_tests.bash ${env.USERNAME} ${env.PASSWORD}"
                     }
+                    // Ad-hoc credentials
                     else {
-                        sh "timeout -k 10m 10m ./scripts/docker/run_and_record_sanity_tests.bash ${params.USERNAME} ${params.PASSWORD}"
+                        sh "./scripts/docker/run_and_record_sanity_tests.bash ${params.USERNAME} ${params.PASSWORD}"
                     }
                 }
             }
