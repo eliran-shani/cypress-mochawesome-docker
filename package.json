@@ -7,22 +7,25 @@
     "cypress-commands": "^1.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "mocha": "^7.1.2",
-    "mochawesome": "^6.1.0",
-    "mochawesome-merge": "^4.0.3"
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.1.0"
   },
   "devDependencies": {
     "cypress": "5.6.0"
   },
   "scripts": {
-    "start": "cypress open",
-    "test": "cypress run test --reporter mochawesome",
-    "record": "cypress run test --record",
-    "cy:sanity:prod:electron": "yarn run test --browser electron",
-    "cy:sanity:prod:chrome": "yarn run test --browser chrome",
-    "cy:sanity:prod:chrome:headless": "yarn run test --browser chrome --headless --record --key ${CYPRESS_KEY}",
-    "cy:sanity:prod:ff": "yarn run test --browser firefox",
-    "cy:sanity:prod:edge": "yarn run test --browser edge"
+    "start": "npx cypress open",
+    "test_reporter": "npx cypress run test --reporter mochawesome",
+    "test": "npx cypress run test",
+    "record": "npx cypress run test --record",
+    "cy:sanity:prod:electron": "yarn test_reporter --browser electron",
+    "cy:sanity:prod:chrome": "yarn test_reporter --browser chrome",
+    "cy:sanity:prod:chrome:headless": "yarn test_reporter --browser chrome",
+    "cy:sanity:prod:chrome:headless:record": "yarn test --spec cypress/integration/sanity.spec.js --browser chrome --headless --record --key ${CYPRESS_KEY}",
+    "cy:sanity:prod:ff": "yarn test_reporter --browser firefox",
+    "cy:sanity:prod:edge": "yarn test_reporter --browser edge"
   },
   "repository": {
     "type": "git",

@@ -12,12 +12,11 @@
 
 function verifyLoggedIn() {
     cy.get('.usermenu').should('be.visible')
-    cy.get('.page-header-headings').should('be.visible')
 }
 
 Cypress.Commands.add("login", (url, username, password) => {
     cy.visit(url)
-    cy.get('.login').contains('Log in').click()
+    cy.get('.login > a').click()
     cy.get('#username').type(username)
     cy.get('#password').type(password)
     cy.get('button#loginbtn').click()
