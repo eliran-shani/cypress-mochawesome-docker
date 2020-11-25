@@ -19,8 +19,7 @@ pipeline {
         stage('Git checkout') {
             steps {
                 git branch: "${params.BRANCH}",
-                    url: 'git@github.com:eliran-shani/cypress-mochawesome-docker.git',
-                    credentialsId: 'github_creds'
+                    url: 'git@github.com:eliran-shani/cypress-mochawesome-docker.git'
             }
         }
         stage('Set display name') {
