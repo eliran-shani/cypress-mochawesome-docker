@@ -32,7 +32,7 @@ Follow these steps to install this repo on your environment:
    navigate to the root directory and install the required packages as follows:
 
     ```sh 
-    $ yarn install
+    $ yarn install --frozen-lockfile
     ```
 
 #### Important: Preparation of environment variables
@@ -57,17 +57,18 @@ Follow these steps to install this repo on your environment:
    
 #### 1. Running tests via docker
 
-* To run all tests
+* To run sanity tests
     ```sh
-   $ sh scripts/docker/run_all_tests.bash
+   $ sh scripts/docker/run_sanity_tests.bash 
     ``` 
 
-* To run a **specific test**
+* To run sanity tests and record
     ```sh
-   $ sh scripts/docker/run_test.bash cypress/integration/examples/navigation.spec.js
+   $ sh scripts/docker/run_and_record_sanity_tests.bash USERNAME PASSWORD
     ```
-       
-#### 2. Running tests via CLI
+    [CYPRESS_KEY] - Should be added to your `bash_profile` (from cypress dashboard record key) 
+  
+#### 2. Running tests via CLI headless
 
 * To run all tests
     ```sh
@@ -100,10 +101,10 @@ Follow these steps to install this repo on your environment:
 
 * To generate reports, add the following flag at the end of the test:
     ```sh 
-    $ yarn run test --spec cypress/integration/sanity_production.spec.js --reporter mochawesome
+    $ yarn run test --spec cypress/integration/sanity.spec.js --reporter mochawesome
     ```
 
 * To generate reports using bash script:
     ```sh 
-    $ sh scripts/cli/run_test.bash cypress/integration/sanity_production.spec.js 
+    $ sh scripts/cli/run_test.bash cypress/integration/sanity.spec.js 
     ```
