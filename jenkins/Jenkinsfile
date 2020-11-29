@@ -1,11 +1,7 @@
 #!groovy
 
 pipeline {
-    agent {
-        node {
-            label 'recommendations-service-1b'
-        }
-    }
+    agent any
     options {
         timeout(time: 1, unit: 'HOURS')
         timestamps ()
