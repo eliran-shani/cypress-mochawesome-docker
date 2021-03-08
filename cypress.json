@@ -8,6 +8,7 @@
     "json": true,
     "reportFilename": "test_results"
   },
+  "supportFile": false,
   "chromeWebSecurity": false,
   "env": {
     "baseUrl": "https://sandbox.moodledemo.net/"

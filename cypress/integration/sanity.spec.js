@@ -11,7 +11,7 @@ function verifyPage({url} = {}) {
     cy.get('#region-main-box').should('be.visible')
 }
 
-describe('Sanity', {retries: {runMode: 2}}, function () {
+describe.skip('Sanity', {retries: {runMode: 2}}, function () {
 
     it('Verify basic navigation functionality - Home', function () {
         leftPANEL.goToHome()
