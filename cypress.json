@@ -9,6 +9,7 @@
     "reportFilename": "test_results"
   },
   "chromeWebSecurity": false,
+  "supportFile": false,
   "env": {
     "baseUrl": "https://sandbox.moodledemo.net/"
   }
