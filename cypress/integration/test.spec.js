@@ -2,10 +2,10 @@
 describe('test name', () => {
 	it('flow 1', () => {
 
-		cy.visit('http://www.crunchbase.com')
-		cy.viewport(1700, 1100)
+	cy.visit('http://www.crunchbase.com')
+	cy.viewport(1700, 1100)
 
-		//Click on search crunchbase
+	//Click on search crunchbase
         cy.get('#mat-input-0').click()
 
         //Click on people
