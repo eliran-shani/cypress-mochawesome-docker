@@ -7,14 +7,14 @@ export class HomePage {
     peopleTab = new PeopleTab();
     
     navigateToPage() {
-        cy.visit('http://www.crunchbase.com') 
+        cy.visit('http://www.crunchbase.com');    
     }
-
+  
     searchForCategory(categoryName)
     {
-      this.header.advancedSearch(categoryName);
+      this.header.advancedSearch(categoryName);          
     }
- 
+  
     setCurrentOrganizationFilter(stringToSearch)
     {
         this.peopleTab.setCurrentOrganizationFilter(stringToSearch);
@@ -22,12 +22,33 @@ export class HomePage {
 
     clickOnResultsInPeopleFilters(index)
     { 
-        this.peopleTab.selectCurrentOrganizationResult(0);
+        this.peopleTab.selectCurrentOrganizationResult(0);       
     }
 
     clickOnPeopleResultsByFullName(fullName)
     {
         this.peopleTab.clickOnResultsByFullName(fullName);
+    }
+
+
+    //Validations methods
+    validatePageIsDisplayed() {
+        this.header.isVisible();
+    }
+    
+    validateCategoryFiltersAreDiplayed()
+    {
+        this.peopleTab.peopleFilters.validateFiltersAreDisplayed(); 
+    }
+
+    validateFiltersOptionsAreDiplayed()
+    {
+        this.peopleTab.peopleFilters.validateOptionsListIsDisplayed()
+    }
+
+    validateResultIsDisplayed(resultName)
+    {
+        this.peopleTab.peopleResults.validateIsResultVisible(resultName) 
     }
 
 }
